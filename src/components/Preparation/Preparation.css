@@ -1,0 +1,59 @@
+.preparation--title {
+    margin-bottom: 0.8rem;
+}
+
+.preparation-item--container {
+    position: relative;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background-color: white;
+    margin-bottom: 0.3rem;
+}
+
+.preparation-item--container:hover {
+    background-color: rgba(240, 240, 240, 1);
+}
+
+.preparation-item--expand-icon {
+    position: absolute;
+    top: 0.6rem;
+    right: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.preparation-item--header {
+    color: black;
+    margin: 0;
+    padding-right: 2rem;
+}
+
+.preparation-item--description {
+    color: black;
+    margin: 0.5rem 0;
+}
+
+.preparation-item--expanded {
+    max-height: 15rem;
+    transition: max-height 0.4s ease-in;
+    overflow: hidden;
+}
+
+.preparation-item--collapsed {
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
+}
+
+@media (min-width: 500px) {
+    .preparation-item--description {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .preparation-item--description {
+        font-size: 1.5rem;
+    }
+}

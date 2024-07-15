@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap");
+
+.header--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.header--title-light {
+    margin: 0;
+    margin-right: 0.4rem;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.header--title-strong {
+    margin: 0;
+    font-family: "Rubik Mono One", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+
+.header--button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 500px) {
+    .header--title-light {
+        font-size: 1.5rem;
+    }
+
+    .header--title-strong {
+        font-size: 2.8rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .header--title-light {
+        font-size: 1.8rem;
+    }
+
+    .header--title-strong {
+        font-size: 3.2rem;
+    }
+}
