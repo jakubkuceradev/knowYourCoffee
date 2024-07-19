@@ -82,7 +82,7 @@
     }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1000px) {
     .search-bar--input {
         font-size: 1.6rem;
     }

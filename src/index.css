@@ -177,9 +177,9 @@ strong {
     }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: 1000px) {
     .container {
-        max-width: 800px;
+        max-width: 600px;
     }
 
     h2 {
