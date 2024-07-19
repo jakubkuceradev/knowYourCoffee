@@ -36,9 +36,18 @@ const SearchBar: React.FC<{
         const includesNotStartsSuggestions: ItemTitle[] = [];
 
         options.forEach((item) => {
-            if (!item.title.toLowerCase().includes(query.toLowerCase())) return;
+            if (
+                !latinise(item.title)
+                    .toLowerCase()
+                    .includes(latinise(query).toLowerCase())
+            )
+                return;
 
-            if (item.title.toLowerCase().startsWith(query.toLowerCase()))
+            if (
+                latinise(item.title)
+                    .toLowerCase()
+                    .startsWith(latinise(query).toLowerCase())
+            )
                 startsWithSuggestions.push(item);
             else includesNotStartsSuggestions.push(item);
         });
@@ -155,3 +164,99 @@ export const Suggestion: React.FC<{
 };
 
 export default SearchBar;
+
+const latinise = (str: string) => {
+    const accents: {
+        [key: string]: string;
+    } = {
+        á: "a",
+        à: "a",
+        â: "a",
+        ä: "a",
+        ã: "a",
+        å: "a",
+        ā: "a",
+        ç: "c",
+        é: "e",
+        è: "e",
+        ê: "e",
+        ë: "e",
+        ē: "e",
+        ė: "e",
+        ę: "e",
+        í: "i",
+        ì: "i",
+        î: "i",
+        ï: "i",
+        ī: "i",
+        į: "i",
+        ñ: "n",
+        ń: "n",
+        ó: "o",
+        ò: "o",
+        ô: "o",
+        ö: "o",
+        õ: "o",
+        ø: "o",
+        ō: "o",
+        ś: "s",
+        š: "s",
+        ú: "u",
+        ù: "u",
+        û: "u",
+        ü: "u",
+        ū: "u",
+        ý: "y",
+        ÿ: "y",
+        ź: "z",
+        ż: "z",
+        ž: "z",
+        Á: "A",
+        À: "A",
+        Â: "A",
+        Ä: "A",
+        Ã: "A",
+        Å: "A",
+        Ā: "A",
+        Ç: "C",
+        É: "E",
+        È: "E",
+        Ê: "E",
+        Ë: "E",
+        Ē: "E",
+        Ė: "E",
+        Ę: "E",
+        Í: "I",
+        Ì: "I",
+        Î: "I",
+        Ï: "I",
+        Ī: "I",
+        Į: "I",
+        Ñ: "N",
+        Ń: "N",
+        Ó: "O",
+        Ò: "O",
+        Ô: "O",
+        Ö: "O",
+        Õ: "O",
+        Ø: "O",
+        Ō: "O",
+        Ś: "S",
+        Š: "S",
+        Ú: "U",
+        Ù: "U",
+        Û: "U",
+        Ü: "U",
+        Ū: "U",
+        Ý: "Y",
+        Ÿ: "Y",
+        Ź: "Z",
+        Ż: "Z",
+        Ž: "Z",
+    };
+
+    return str
+        .split("")
+        .map((char) => accents[char] || char)
+        .join("");
+};
