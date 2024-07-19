@@ -2,7 +2,8 @@ import "./App.css";
 import homeData from "./data/home.json";
 import Home from "./pages/Home/Home";
 import BeverageInfo from "./pages/BeverageInfo/BeverageInfo";
-import Header from "./components/Header/Header";
+import Header from "./components/LightStrongButton";
+import StyledHeaderButton from "./components/StyledHeaderButton";
 import SearchBar from "./components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { BeverageData } from "./types";
@@ -28,7 +29,11 @@ const App = () => {
     return (
         <>
             <header>
-                <Header onClick={() => setBeverageID(null)} />
+                <StyledHeaderButton
+                    lightTitle="Know Your"
+                    strongTitle="COFFEE"
+                    onClick={() => setBeverageID(null)}
+                />
             </header>
             <main className="container">
                 {data && (
