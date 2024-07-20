@@ -44,8 +44,8 @@ button {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    background: none;
-    border: none;
+    background: inherit;
+    border: inherit;
     cursor: pointer;
     text-align: inherit;
     width: inherit;
