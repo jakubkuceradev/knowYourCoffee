@@ -1,5 +1,5 @@
 import Description from "../../components/Description/Description";
-import Preparation from "../../components/Preparation/Preparation";
+import Accordion from "../../components/Accordion/Accordion";
 import React from "react";
 
 type Step = {
@@ -49,7 +49,7 @@ const BeverageInfo: React.FC<{ data: BeverageData }> = () => {
                 hasImage={homeData.hasImage}
                 imagePath={homeData.imagePath}
             />
-            <Preparation header={"What You Can Do"} steps={homeData.steps} />
+            <Accordion items={homeData.steps} />
         </>
     );
 };

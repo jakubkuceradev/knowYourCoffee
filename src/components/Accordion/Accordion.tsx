@@ -9,10 +9,11 @@ import {
     AccordionContentText,
 } from "./Accordion.styled";
 import { v4 as uuid } from "uuid";
-import useToggle from "../hooks/useToggle";
+import useToggle from "../../hooks/useToggle";
 
 export type AccordionProps = {
     items: AccordionItemData[];
+    className?: string;
 };
 
 export type AccordionItemData = {
@@ -20,46 +21,42 @@ export type AccordionItemData = {
     description: string;
 };
 
-const Accordion: React.FC<AccordionProps> = ({ items }) => {
-    const itemsElements = items.map((item, index) => {
+const Accordion: React.FC<AccordionProps> = ({ items, className }) => {
+    const itemsElements = items.map((item) => {
         return (
             <AccordionItem
                 key={uuid()}
                 title={item.header}
                 content={item.description}
-                first={index === 0}
-                last={index === items.length - 1}
             />
         );
     });
 
-    return <AccordionContainer>{itemsElements}</AccordionContainer>;
+    return (
+        <AccordionContainer className={className}>
+            {itemsElements}
+        </AccordionContainer>
+    );
 };
 
 type AccordionItemProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     title: string;
     content: string;
-    first?: boolean;
-    last?: boolean;
 };
 
-const AccordionItem: React.FC<AccordionItemProps> = ({
-    title,
-    content,
-    ...props
-}) => {
+const AccordionItem: React.FC<AccordionItemProps> = ({ title, content }) => {
     const [expanded, toggleExpanded] = useToggle(false);
 
     return (
-        <AccordionButton first last onClick={toggleExpanded} {...props}>
+        <AccordionButton onClick={toggleExpanded}>
             <AccordionHeader title={title} expanded={expanded} />
             <AccordionContent content={content} expanded={expanded} />
         </AccordionButton>
     );
 };
 
-type AccordionContentProps = {
-    content: string;
+type AccordionHeaderProps = {
+    title: string;
     expanded: boolean;
 };
 
@@ -75,21 +72,20 @@ const AccordionHeader: React.FC<AccordionHeaderProps> = ({
     );
 };
 
+type AccordionContentProps = {
+    content: string;
+    expanded: boolean;
+};
+
 const AccordionContent: React.FC<AccordionContentProps> = ({
     content,
     expanded,
-    ...props
 }) => {
     return (
-        <AccordionContentContainer expanded={expanded} {...props}>
+        <AccordionContentContainer $expanded={expanded}>
             <AccordionContentText>{content}</AccordionContentText>
         </AccordionContentContainer>
     );
-};
-
-type AccordionHeaderProps = {
-    title: string;
-    expanded: boolean;
 };
 
 export default Accordion;

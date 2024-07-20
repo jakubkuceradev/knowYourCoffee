@@ -1,7 +1,6 @@
-import Description from "../../components/Description/Description";
-import Preparation from "../../components/Preparation/Preparation";
 import React from "react";
-import StyledAccordion from "../../components/StyledAccordion";
+import Description from "../../components/Description/Description";
+import Accordion from "../../components/Accordion/Accordion";
 
 type Step = {
     header: string;
@@ -25,7 +24,7 @@ const BeverageInfo: React.FC<{ data: BeverageData }> = ({ data }) => {
                 hasImage={data.hasImage}
                 imagePath={data.imagePath}
             />
-            <StyledAccordion items={data.steps} />
+            <Accordion items={data.steps} className="mt-4" />
         </>
     );
 };

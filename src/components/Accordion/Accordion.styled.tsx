@@ -8,20 +8,22 @@ export const AccordionHeaderTitle = styled.h4`
 
 export const AccordionContainer = styled.div``;
 
-export const AccordionButton = styled.button<{
-    first?: boolean;
-    last?: boolean;
-}>`
+export const AccordionButton = styled.button`
     position: relative;
     width: 100%;
     padding: 0.6rem 1rem;
     background-color: white;
     margin-bottom: 0.3rem;
 
-    border-top-left-radius: ${({ first }) => (first ? "1rem" : "0")};
-    border-top-right-radius: ${({ first }) => (first ? "1rem" : "0")};
-    border-bottom-left-radius: ${({ last }) => (last ? "1rem" : "0")};
-    border-bottom-right-radius: ${({ last }) => (last ? "1rem" : "0")};
+    &:first-child {
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+
+    &:last-child {
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
 
     &:hover {
         background-color: rgba(240, 240, 240, 1);
@@ -39,15 +41,11 @@ export const AccordionIcon = styled.div`
     color: black;
 `;
 
-type ContentProps = {
-    expanded: boolean;
-};
-
-export const AccordionContentContainer = styled.p<ContentProps>`
+export const AccordionContentContainer = styled.div<{ $expanded?: boolean }>`
     overflow: hidden;
-    max-height: ${({ expanded }) => (expanded ? "15rem" : "0")};
-    transition: ${({ expanded }) =>
-        expanded ? "max-height 0.4s ease-in" : "max-height 0.2s ease-out"};
+    max-height: ${({ $expanded }) => ($expanded ? "15rem" : "0")};
+    transition: ${({ $expanded }) =>
+        $expanded ? "max-height 0.4s ease-in" : "max-height 0.2s ease-out"};
 `;
 
 export const AccordionContentText = styled.p`
