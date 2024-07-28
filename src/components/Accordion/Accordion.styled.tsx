@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
+export const AccordionContainer = styled.div`
+    margin-bottom: 1.5rem;
+`;
+
 export const AccordionHeaderTitle = styled.h4`
     color: black;
     margin: 0;
     padding-right: 2rem;
 `;
-
-export const AccordionContainer = styled.div``;
 
 export const AccordionButton = styled.button`
     position: relative;
