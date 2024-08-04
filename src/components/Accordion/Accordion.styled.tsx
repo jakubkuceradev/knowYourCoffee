@@ -36,11 +36,19 @@ export const AccordionHeaderContainer = styled.div``;
 
 export const AccordionIcon = styled.div`
     position: absolute;
-    top: 0.6rem;
+    top: 0.55rem;
     right: 1rem;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     color: black;
+
+    @media (min-width: ${(props) => props.theme.breakpoints.mobile}) {
+        top: 0.8rem;
+    }
+
+    @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+        top: 0.85rem;
+    }
 `;
 
 export const AccordionContentContainer = styled.div<{ $expanded?: boolean }>`
@@ -54,11 +62,11 @@ export const AccordionContentText = styled.p`
     color: black;
     margin: 0.5rem 0;
 
-    @media (min-width: 500px) {
+    @media (min-width: ${(props) => props.theme.breakpoints.mobile}) {
         font-size: 1.2rem;
     }
 
-    @media (min-width: 1000px) {
+    @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
         font-size: 1.5rem;
     }
 `;

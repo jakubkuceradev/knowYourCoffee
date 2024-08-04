@@ -25,11 +25,11 @@ export const HeaderLightTitle = styled.h2`
     font-weight: 400;
     font-size: 1.3rem;
 
-    @media (min-width: 500px) {
+    @media (min-width: ${(props) => props.theme.breakpoints.mobile}) {
         font-size: 1.5rem;
     }
 
-    @media (min-width: 1000px) {
+    @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
         font-size: 1.8rem;
     }
 `;
@@ -41,11 +41,11 @@ export const HeaderStrongTitle = styled.h1`
     font-weight: 400;
     font-size: 2.5rem;
 
-    @media (min-width: 500px) {
+    @media (min-width: ${(props) => props.theme.breakpoints.mobile}) {
         font-size: 2.8rem;
     }
 
-    @media (min-width: 1000px) {
+    @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
         font-size: 3.2rem;
     }
 `;
