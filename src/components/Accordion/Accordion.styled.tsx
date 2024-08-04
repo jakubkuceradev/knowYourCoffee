@@ -43,7 +43,7 @@ export const AccordionIcon = styled.div`
     color: black;
 
     @media (min-width: ${(props) => props.theme.breakpoints.mobile}) {
-        top: 0.8rem;
+        top: 0.7rem;
     }
 
     @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {

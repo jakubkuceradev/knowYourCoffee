@@ -1,6 +1,7 @@
 import Description from "../../components/Description/Description";
 import Accordion from "../../components/Accordion/Accordion";
 import React from "react";
+import { HomeOptionsTitle } from "./Home.styled";
 
 type Step = {
     header: string;
@@ -49,6 +50,7 @@ const BeverageInfo: React.FC<{ data: BeverageData }> = () => {
                 hasImage={homeData.hasImage}
                 imagePath={homeData.imagePath}
             />
+            <HomeOptionsTitle>What You Can Do</HomeOptionsTitle>
             <Accordion items={homeData.steps} />
         </>
     );

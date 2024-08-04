@@ -1,4 +1,3 @@
-import "./App.css";
 import homeData from "./data/home.json";
 import Home from "./pages/Home/Home";
 import BeverageInfo from "./pages/BeverageInfo/BeverageInfo";
