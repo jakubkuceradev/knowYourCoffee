@@ -1,4 +1,9 @@
-import "./Description.css";
+import {
+    DescriptionImageContainer,
+    DescriptionTextContainer,
+    DescriptionImage,
+    DescriptionContainer,
+} from "./Description.styled";
 
 const Description: React.FC<{
     title: string;
@@ -7,21 +12,21 @@ const Description: React.FC<{
     imagePath: string;
 }> = ({ title, content, hasImage, imagePath }) => {
     return (
-        <div className="description--container">
-            <div className="description--text-container mt-4">
+        <DescriptionContainer>
+            <DescriptionTextContainer>
                 <h2>{title}</h2>
-                <p>{content} </p>
-            </div>
-            <div className="description--image-container mt-4">
+                <p>{content}</p>
+            </DescriptionTextContainer>
+            <DescriptionImageContainer>
                 {hasImage && (
-                    <img
+                    <DescriptionImage
                         className="description--img"
                         src={imagePath}
                         alt={title + "-image"}
-                    ></img>
+                    />
                 )}
-            </div>
-        </div>
+            </DescriptionImageContainer>
+        </DescriptionContainer>
     );
 };
 
