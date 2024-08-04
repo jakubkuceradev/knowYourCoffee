@@ -1,14 +1,30 @@
 import React from "react";
-import "./Header.css";
+import {
+    HeaderButton,
+    HeaderContainer,
+    HeaderLightTitle,
+    HeaderStrongTitle,
+} from "./Header.styled";
 
-const Header: React.FC<{ onClick: () => void }> = ({ onClick }) => {
+export type HeaderButtonProps = {
+    lightTitle: string;
+    strongTitle: string;
+    onClick?: () => void;
+};
+
+const Header: React.FC<HeaderButtonProps> = ({
+    lightTitle,
+    strongTitle,
+    onClick,
+    ...props
+}) => {
     return (
-        <div className="header--container">
-            <button className="header--button" onClick={onClick}>
-                <h2 className="header--title-light">Know Your</h2>
-                <h1 className="header--title-strong">COFFEE</h1>
-            </button>
-        </div>
+        <HeaderContainer>
+            <HeaderButton onClick={onClick} {...props}>
+                <HeaderLightTitle>{lightTitle}</HeaderLightTitle>
+                <HeaderStrongTitle>{strongTitle}</HeaderStrongTitle>
+            </HeaderButton>
+        </HeaderContainer>
     );
 };
 

@@ -1,4 +1,3 @@
-import "./App.css";
 import homeData from "./data/home.json";
 import Home from "./pages/Home/Home";
 import BeverageInfo from "./pages/BeverageInfo/BeverageInfo";
@@ -28,7 +27,11 @@ const App = () => {
     return (
         <>
             <header>
-                <Header onClick={() => setBeverageID(null)} />
+                <Header
+                    lightTitle="Know Your"
+                    strongTitle="COFFEE"
+                    onClick={() => setBeverageID(null)}
+                />
             </header>
             <main className="container">
                 {data && (

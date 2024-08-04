@@ -1,6 +1,7 @@
-import Description from "../../components/Description/Description";
-import Preparation from "../../components/Preparation/Preparation";
 import React from "react";
+import Description from "../../components/Description/Description";
+import Accordion from "../../components/Accordion/Accordion";
+import { PreparationTitle } from "./BeverageInfo.styled";
 
 type Step = {
     header: string;
@@ -24,7 +25,8 @@ const BeverageInfo: React.FC<{ data: BeverageData }> = ({ data }) => {
                 hasImage={data.hasImage}
                 imagePath={data.imagePath}
             />
-            <Preparation header={"Preparation"} steps={data.steps} />
+            <PreparationTitle>Preparation</PreparationTitle>
+            <Accordion items={data.steps} />
         </>
     );
 };

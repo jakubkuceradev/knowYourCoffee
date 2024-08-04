@@ -5,8 +5,16 @@ import React, {
     useMemo,
     useEffect,
 } from "react";
+import {
+    SearchBarButton,
+    SearchBarContainer,
+    SearchBarInput,
+    SearchContainer,
+    SearchSuggestionButton,
+    SearchSuggestionContent,
+    SearchSuggestionsContainer,
+} from "./SearchBar.styled";
 import { BeverageData } from "../../types";
-import "./SearchBar.css";
 
 type ItemTitle = {
     title: string;
@@ -105,32 +113,26 @@ const SearchBar: React.FC<{
     };
 
     return (
-        <div className="search--container">
-            <div className="search-bar--container">
-                <input
+        <SearchContainer>
+            <SearchBarContainer>
+                <SearchBarInput
                     onKeyDown={handleKeyDown}
-                    className="search-bar--input"
-                    type="text"
-                    value={query}
-                    placeholder="Search for a beverage.."
                     onChange={handleChange}
+                    value={query}
+                    type="text"
+                    placeholder="Search for a beverage.."
                 />
-                <button
+                <SearchBarButton
                     onClick={() => {
                         setQuery("");
                         setSuggestionsDisplayed(false);
                     }}
-                    className="search-bar--clear"
                 >
                     X
-                </button>
-            </div>
+                </SearchBarButton>
+            </SearchBarContainer>
 
-            <div
-                className={`search-suggestions--container ${
-                    suggestionsDisplayed ? `display` : `hide`
-                }`}
-            >
+            <SearchSuggestionsContainer $isDisplayed={suggestionsDisplayed}>
                 {suggestions.slice(0, 10).map((item, i) => (
                     <Suggestion
                         content={item.title}
@@ -139,8 +141,8 @@ const SearchBar: React.FC<{
                         focused={i === focusedIndex}
                     />
                 ))}
-            </div>
-        </div>
+            </SearchSuggestionsContainer>
+        </SearchContainer>
     );
 };
 
@@ -150,16 +152,9 @@ export const Suggestion: React.FC<{
     handleClick: () => void;
 }> = ({ content, focused, handleClick }) => {
     return (
-        <button
-            className={`suggestions-item--container ${
-                focused ? "suggestions-item--focused" : ""
-            }`}
-            onClick={handleClick}
-        >
-            <div className="preparation-item--header-container">
-                <p className="suggestions-item--title">{content}</p>
-            </div>
-        </button>
+        <SearchSuggestionButton $isFocused={focused} onClick={handleClick}>
+            <SearchSuggestionContent>{content}</SearchSuggestionContent>
+        </SearchSuggestionButton>
     );
 };
 
