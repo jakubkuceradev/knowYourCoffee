@@ -1,7 +1,5 @@
 # Welcome to knowYourCoffee
 
-Discover the world of coffee at [coffee.jakubkucera.tech](http://coffee.jakubkucera.tech)
-
 ## What You Can Do
 
 - **Search for Your Favorite Coffee**: Use the search bar to find specific coffee beverages.
